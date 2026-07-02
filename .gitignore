@@ -9,3 +9,6 @@ __pycache__/
 # dashboards/report.html
 data/raw/*.json
 !data/raw/.gitkeep
+
+# Local editor / preview config (not part of the archive)
+.claude/
