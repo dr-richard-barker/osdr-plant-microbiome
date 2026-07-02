@@ -85,13 +85,20 @@ Built by [`src/build_graph.py`](../src/build_graph.py).
 - `network_fragment.html` — interactive Plotly network embedded in the report.
 
 ### Guild scores — `data/processed/guild_scores.csv`
-Built by [`src/classify_guild.py`](../src/classify_guild.py). One row per genus:
-`prior` (beneficial/pathogen/unlabelled), engineered features (`swab_assoc`,
-`rhizo_pref`, `niche_breadth`, `flight_lfc`, `prevalence`, co-occurrence
-association scores), `P_beneficial`, `P_pathogen`, `pathogen_risk`,
-`confidence`, `guild_call`. Method described in
-`data/processed/GUILD_METHOD.md`. Scores are illustrative until primary
-feature tables are ingested; the method is unchanged on real data.
+Built by [`src/classify_guild.py`](../src/classify_guild.py). **Multiclass**:
+plant pathogens (crop risk) and human pathogens (food-safety risk) are kept
+separate. One row per genus:
+- `prior` — beneficial / plant_pathogen / human_pathogen / unlabelled
+- guild-specific features — `human_assoc` (built-environment/swab → human),
+  `plant_assoc` + `root_pref` (living plant/vascular → plant pathogen),
+  `niche_breadth`, `flight_lfc`, `prevalence`, `mean_ra`, `cv_ra`,
+  co-occurrence association scores per guild
+- `P_beneficial`, `P_plant_pathogen`, `P_human_pathogen` (sum ≈ 1)
+- `plant_pathogen_risk`, `human_pathogen_risk` — **two separate** risk scores
+- `guild_call` (argmax with 0.45 threshold → `uncertain`), `confidence`
+
+Method described in `data/processed/GUILD_METHOD.md`. Scores are illustrative
+until primary feature tables are ingested; the method is unchanged on real data.
 
 ### Dated figures — `figures/<SNAPSHOT_DATE>/`
 Fig1–6 (PNG + SVG, 300 dpi) plus `MANIFEST.md` recording the corpus state and

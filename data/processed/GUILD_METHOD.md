@@ -1,43 +1,55 @@
 # Guild inference method card
 
-**Question:** which taxa are likely *pathogenic/opportunistic* and which
-*beneficial* for crop health in spaceflight growth systems?
+**Question:** which crop-system microbes are *beneficial*, which are *plant
+pathogens* (a crop-yield risk), and which are *human/clinical pathogens* (a
+food-safety / crew-health risk)? These two pathogen concepts are kept SEPARATE
+throughout — they co-occur in the same hardware but threaten different hosts.
 
-**Approach — four independent evidence streams fused by semi-supervised learning:**
-1. Weak supervision from a curated genus-level prior KB (beneficial / pathogen /
-   deliberately unlabelled-ambiguous).
-2. Ecological trait features (human-swab association, rhizosphere preference,
-   niche breadth, spaceflight log-fold change, prevalence, abundance moments).
-3. Guilt-by-association on a Spearman co-occurrence network (does a taxon
-   consort with known beneficials or known pathogens?).
-4. `LabelSpreading` (RBF) propagates sparse labels to all genera → calibrated
-   P(beneficial)/P(pathogen); a balanced RandomForest gives feature importance.
+**Guild priors (weak labels; ambiguous genera deliberately unlabelled):**
+- beneficial: Bacillus, Paenibacillus, Rhizobium, Streptomyces, Methylobacterium, Sphingomonas, Variovorax
+- plant pathogen: Ralstonia, Curtobacterium†
+- human pathogen: Staphylococcus, Cutibacterium, Acinetobacter, Stenotrophomonas, Enterobacter
+- unlabelled: Pseudomonas, Pantoea, Burkholderia, Massilia, Flavobacterium, Chryseobacterium
 
-**Pathogen risk** = P(pathogen) up-weighted by human-swab association, so
-built-environment opportunists that colonise crops are flagged.
+†genus-level prior — only some *Curtobacterium* pathovars are phytopathogenic;
+this illustrates why strain/ASV-level resolution is a recommended upgrade.
 
-**Feature importance (RandomForest on labelled genera):**
+**Method:** four evidence streams — (1) the priors above; (2) guild-specific
+ecological traits: `human_assoc` (built-environment swab signal → human
+pathogen), `plant_assoc` + `root_pref` (living plant / vascular tissue → plant
+pathogen), plus niche breadth, spaceflight log-fold change and prevalence;
+(3) Spearman co-occurrence guilt-by-association computed separately toward each
+guild; (4) **multiclass** `LabelSpreading` returning P(beneficial),
+P(plant_pathogen), P(human_pathogen), with a balanced RandomForest for feature
+importance. **Two separate risk scores** are reported: `plant_pathogen_risk`
+(crop risk) and `human_pathogen_risk` (food-safety risk).
+
+**Feature importance (multiclass RandomForest on labelled genera):**
 | feature | importance |
 |---|---|
-| swab_assoc | 0.234 |
-| mean_ra | 0.146 |
-| niche_breadth | 0.142 |
-| flight_lfc | 0.141 |
-| assoc_beneficial | 0.089 |
-| cooccur_centrality | 0.078 |
-| cv_ra | 0.076 |
-| rhizo_pref | 0.057 |
-| assoc_pathogen | 0.028 |
-| prevalence | 0.010 |
+| plant_assoc | 0.201 |
+| flight_lfc | 0.162 |
+| niche_breadth | 0.158 |
+| human_assoc | 0.154 |
+| mean_ra | 0.090 |
+| cv_ra | 0.078 |
+| root_pref | 0.046 |
+| assoc_beneficial | 0.040 |
+| assoc_human_pathogen | 0.037 |
+| prevalence | 0.021 |
+| assoc_plant_pathogen | 0.014 |
 
 **This-snapshot calls (illustrative scores):**
-- Likely pathogen/opportunist: Staphylococcus, Cutibacterium, Acinetobacter, Stenotrophomonas, Enterobacter, Pseudomonas, Pantoea, Ralstonia
-- Likely beneficial: Rhizobium, Burkholderia, Curtobacterium, Bacillus, Chryseobacterium, Methylobacterium, Massilia, Flavobacterium, Paenibacillus, Sphingomonas, Streptomyces, Variovorax
+- Likely beneficial: Bacillus, Massilia, Methylobacterium, Paenibacillus, Sphingomonas, Streptomyces, Chryseobacterium, Variovorax, Flavobacterium, Burkholderia, Rhizobium, Pantoea
+- Likely PLANT pathogen (crop risk): Curtobacterium, Ralstonia
+- Likely HUMAN pathogen (food-safety risk): Acinetobacter, Cutibacterium, Staphylococcus, Stenotrophomonas, Enterobacter, Pseudomonas
+- Uncertain: none
 
-**Recommended production upgrades:** (a) resolve to ASV/strain level with a
-reference DB (e.g. BacDive/PLaBAse virulence & PGP trait annotations); (b)
-replace Spearman with SparCC/SPIEC-EASI for compositional robustness; (c) add
-genome-inferred traits (antiSMASH BGCs, virulence factor DBs) via PICRUSt2;
-(d) calibrate against curated phytopathogen lists; (e) report per-call
-uncertainty and require multi-study reproducibility before any operational
-flag. Scores here are illustrative until primary OSDR feature tables are ingested.
+**Production upgrades:** (a) resolve to ASV/strain level against curated
+references — phytopathogen catalogues (e.g. PHI-base, plant-pathogen host
+databases) for the plant axis and clinical/virulence databases (e.g. VFDB,
+BacDive) for the human axis; (b) compositional co-occurrence (SparCC/SPIEC-EASI);
+(c) genome-inferred traits (PICRUSt2, antiSMASH, virulence-factor screens);
+(d) require cross-study reproducibility before any operational flag; (e) treat
+the two risks with different response protocols (crop quarantine vs food-safety
+handling). Scores here are illustrative until primary feature tables are ingested.

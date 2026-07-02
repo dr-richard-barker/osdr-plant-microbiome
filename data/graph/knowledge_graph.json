@@ -33,26 +33,6 @@
     },
     {
       "ntype": "Tissue",
-      "label": "fruit",
-      "id": "Tissue:fruit"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "substrate",
-      "id": "Tissue:substrate"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "swab",
-      "id": "Tissue:swab"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "root",
-      "id": "Tissue:root"
-    },
-    {
-      "ntype": "Tissue",
       "label": "leaf",
       "id": "Tissue:leaf"
     },
@@ -63,8 +43,33 @@
     },
     {
       "ntype": "Tissue",
+      "label": "swab",
+      "id": "Tissue:swab"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "fruit",
+      "id": "Tissue:fruit"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "root",
+      "id": "Tissue:root"
+    },
+    {
+      "ntype": "Tissue",
       "label": "water",
       "id": "Tissue:water"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "substrate",
+      "id": "Tissue:substrate"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Light regime (red-rich vs blue-rich)",
+      "id": "Factor:Light regime (red-rich vs blue-rich)"
     },
     {
       "ntype": "Factor",
@@ -75,11 +80,6 @@
       "ntype": "Factor",
       "label": "Tissue type",
       "id": "Factor:Tissue type"
-    },
-    {
-      "ntype": "Factor",
-      "label": "Light regime (red-rich vs blue-rich)",
-      "id": "Factor:Light regime (red-rich vs blue-rich)"
     },
     {
       "ntype": "Study",
@@ -101,13 +101,13 @@
     },
     {
       "ntype": "Factor",
-      "label": "Sample type",
-      "id": "Factor:Sample type"
+      "label": "Plant position",
+      "id": "Factor:Plant position"
     },
     {
       "ntype": "Factor",
-      "label": "Plant position",
-      "id": "Factor:Plant position"
+      "label": "Sample type",
+      "id": "Factor:Sample type"
     },
     {
       "ntype": "Study",
@@ -145,13 +145,13 @@
     },
     {
       "ntype": "Factor",
-      "label": "Hardware component",
-      "id": "Factor:Hardware component"
+      "label": "Science carrier quadrant",
+      "id": "Factor:Science carrier quadrant"
     },
     {
       "ntype": "Factor",
-      "label": "Science carrier quadrant",
-      "id": "Factor:Science carrier quadrant"
+      "label": "Hardware component",
+      "id": "Factor:Hardware component"
     },
     {
       "ntype": "Study",
@@ -211,26 +211,6 @@
     {
       "rel": "SAMPLED_TISSUE",
       "source": "OSD-766",
-      "target": "Tissue:fruit"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:substrate"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:swab"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:root"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
       "target": "Tissue:leaf"
     },
     {
@@ -241,7 +221,32 @@
     {
       "rel": "SAMPLED_TISSUE",
       "source": "OSD-766",
+      "target": "Tissue:swab"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:fruit"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:root"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
       "target": "Tissue:water"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:substrate"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-766",
+      "target": "Factor:Light regime (red-rich vs blue-rich)"
     },
     {
       "rel": "HAS_FACTOR",
@@ -254,11 +259,6 @@
       "target": "Factor:Tissue type"
     },
     {
-      "rel": "HAS_FACTOR",
-      "source": "OSD-766",
-      "target": "Factor:Light regime (red-rich vs blue-rich)"
-    },
-    {
       "rel": "USES_HARDWARE",
       "source": "Hardware:Veggie",
       "target": "OSD-412"
@@ -296,6 +296,71 @@
     {
       "rel": "MEASURED_BY",
       "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
       "target": "OSD-773"
     },
     {
@@ -310,56 +375,6 @@
     },
     {
       "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:substrate",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:substrate",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:substrate",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:substrate",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:substrate",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
       "source": "Tissue:root",
       "target": "OSD-412"
     },
@@ -382,50 +397,35 @@
       "rel": "SAMPLED_TISSUE",
       "source": "Tissue:root",
       "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:wick",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:wick",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:wick",
-      "target": "OSD-414"
     },
     {
       "rel": "SAMPLED_TISSUE",
       "source": "Tissue:water",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
       "target": "OSD-773"
     },
     {
@@ -476,12 +476,12 @@
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-412",
-      "target": "Factor:Sample type"
+      "target": "Factor:Plant position"
     },
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-412",
-      "target": "Factor:Plant position"
+      "target": "Factor:Sample type"
     },
     {
       "rel": "STUDIES_ORGANISM",
@@ -515,22 +515,22 @@
     },
     {
       "rel": "HAS_FACTOR",
-      "source": "Factor:Sample type",
+      "source": "Factor:Plant position",
       "target": "OSD-413"
     },
     {
       "rel": "HAS_FACTOR",
-      "source": "Factor:Sample type",
+      "source": "Factor:Plant position",
       "target": "OSD-414"
     },
     {
       "rel": "HAS_FACTOR",
-      "source": "Factor:Plant position",
+      "source": "Factor:Sample type",
       "target": "OSD-413"
     },
     {
       "rel": "HAS_FACTOR",
-      "source": "Factor:Plant position",
+      "source": "Factor:Sample type",
       "target": "OSD-414"
     },
     {
@@ -546,12 +546,12 @@
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-772",
-      "target": "Factor:Hardware component"
+      "target": "Factor:Science carrier quadrant"
     },
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-772",
-      "target": "Factor:Science carrier quadrant"
+      "target": "Factor:Hardware component"
     },
     {
       "rel": "USES_HARDWARE",

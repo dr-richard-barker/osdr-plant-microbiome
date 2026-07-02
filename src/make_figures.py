@@ -146,32 +146,40 @@ def fig3_composition(con):
 
 
 def fig6_transience(con):
-    """Schematic cumulative-corpus timeline emphasising the snapshot is transient."""
-    n_now = pd.read_sql_query("SELECT COUNT(*) n FROM studies", con).n.iloc[0]
-    # Illustrative cumulative trajectory of OSDR plant-microbiome curation.
-    years = np.array([2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.5, 2027, 2028])
-    cum   = np.array([0,    1,    3,    3,    4,    5,    6,    n_now,   9,   12])
-    fig, ax = plt.subplots(figsize=(6.6, 3.4))
-    # past (solid) vs future (dashed projection)
-    past = years <= 2026.5
-    ax.plot(years[past], cum[past], "-o", color="#0b3d64", lw=2, ms=5, label="curated (illustrative)")
-    ax.plot(years[~past] if (~past).any() else [], cum[~past] if (~past).any() else [],
-            "--o", color="#999", lw=1.6, ms=4, label="projected")
-    # connect last past to first future
-    ax.plot(years[5:8], cum[5:8], "-", color="#0b3d64", lw=2)
-    ax.plot(years[7:], cum[7:], "--", color="#999", lw=1.6)
-    ax.scatter([2026.5], [n_now], s=280, marker="*", color="#CC6677",
-               edgecolor="#661100", zorder=5, label=f"this snapshot ({n_now} studies)")
-    ax.annotate("2 Jul 2026", (2026.5, n_now), xytext=(2026.7, n_now - 2.2),
-                fontsize=8, color="#661100")
-    ax.axvspan(2019, 2026.5, color="#0b3d64", alpha=0.04)
-    ax.axvspan(2026.5, 2028, color="#999", alpha=0.06)
-    ax.set_xlabel("Year"); ax.set_ylabel("Cumulative plant-microbiome studies in OSDR")
-    ax.set_title("A moving target: the corpus grows, so every result is a dated snapshot")
-    ax.legend(fontsize=7.5, frameon=False, loc="upper left")
-    ax.text(0.5, -0.28, "Illustrative trajectory for exposition; the live FAIR dashboard "
-            "re-derives the current corpus on each build.", transform=ax.transAxes,
-            ha="center", fontsize=7, color="#666")
+    """Cumulative-corpus timeline from REAL OSDR public release dates."""
+    from datetime import datetime
+    import matplotlib.dates as mdates
+    rd = pd.read_csv(config.REGISTRY_CSV.parent / "release_dates.csv")
+    rd["date"] = pd.to_datetime(rd["public_release_date"], format="%d-%b-%Y")
+    rd = rd.sort_values("date").reset_index(drop=True)
+    rd["cum"] = np.arange(1, len(rd) + 1)
+    snap = datetime.strptime(config.SNAPSHOT_DATE, "%Y-%m-%d")
+
+    fig, ax = plt.subplots(figsize=(6.8, 3.6))
+    # step function of cumulative real releases
+    xs = [rd.date.iloc[0]] + list(rd.date) + [snap]
+    ys = [0] + list(rd.cum) + [rd.cum.iloc[-1]]
+    ax.step(xs, ys, where="post", color="#0b3d64", lw=2, zorder=2)
+    ax.scatter(rd.date, rd.cum, color="#0b3d64", s=32, zorder=3)
+    for r in rd.itertuples():
+        ax.annotate(r.osd_accession, (r.date, r.cum), fontsize=6.2,
+                    xytext=(4, -9), textcoords="offset points", color="#0b3d64")
+    ax.scatter([snap], [rd.cum.iloc[-1]], s=300, marker="*", color="#CC6677",
+               edgecolor="#661100", zorder=5,
+               label=f"this snapshot: {rd.cum.iloc[-1]} studies")
+    ax.annotate(config.SNAPSHOT_DATE, (snap, rd.cum.iloc[-1]),
+                xytext=(6, -14), textcoords="offset points", fontsize=8, color="#661100")
+    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=3))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%b\n%Y"))
+    ax.set_ylabel("Cumulative studies in OSDR")
+    ax.set_ylim(0, rd.cum.iloc[-1] + 1.5)
+    ax.set_title("A moving target: the corpus grows,\nso every result is a dated snapshot",
+                 fontsize=10)
+    ax.legend(fontsize=8, frameon=False, loc="upper left")
+    ax.text(0.5, -0.32, "Cumulative count from REAL OSDR public-release dates "
+            "(data/registry/release_dates.csv). The live FAIR dashboard re-derives "
+            "the corpus on each build.", transform=ax.transAxes, ha="center",
+            fontsize=7, color="#666")
     _save(fig, "Fig6_corpus_growth")
 
 

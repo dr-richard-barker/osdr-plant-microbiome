@@ -28,22 +28,6 @@
   <data key="d0">Region</data>
   <data key="d1">V3-V4</data>
 </node>
-<node id="Tissue:fruit">
-  <data key="d0">Tissue</data>
-  <data key="d1">fruit</data>
-</node>
-<node id="Tissue:substrate">
-  <data key="d0">Tissue</data>
-  <data key="d1">substrate</data>
-</node>
-<node id="Tissue:swab">
-  <data key="d0">Tissue</data>
-  <data key="d1">swab</data>
-</node>
-<node id="Tissue:root">
-  <data key="d0">Tissue</data>
-  <data key="d1">root</data>
-</node>
 <node id="Tissue:leaf">
   <data key="d0">Tissue</data>
   <data key="d1">leaf</data>
@@ -52,9 +36,29 @@
   <data key="d0">Tissue</data>
   <data key="d1">wick</data>
 </node>
+<node id="Tissue:swab">
+  <data key="d0">Tissue</data>
+  <data key="d1">swab</data>
+</node>
+<node id="Tissue:fruit">
+  <data key="d0">Tissue</data>
+  <data key="d1">fruit</data>
+</node>
+<node id="Tissue:root">
+  <data key="d0">Tissue</data>
+  <data key="d1">root</data>
+</node>
 <node id="Tissue:water">
   <data key="d0">Tissue</data>
   <data key="d1">water</data>
+</node>
+<node id="Tissue:substrate">
+  <data key="d0">Tissue</data>
+  <data key="d1">substrate</data>
+</node>
+<node id="Factor:Light regime (red-rich vs blue-rich)">
+  <data key="d0">Factor</data>
+  <data key="d1">Light regime (red-rich vs blue-rich)</data>
 </node>
 <node id="Factor:Spaceflight">
   <data key="d0">Factor</data>
@@ -63,10 +67,6 @@
 <node id="Factor:Tissue type">
   <data key="d0">Factor</data>
   <data key="d1">Tissue type</data>
-</node>
-<node id="Factor:Light regime (red-rich vs blue-rich)">
-  <data key="d0">Factor</data>
-  <data key="d1">Light regime (red-rich vs blue-rich)</data>
 </node>
 <node id="OSD-412">
   <data key="d0">Study</data>
@@ -83,13 +83,13 @@
   <data key="d0">Region</data>
   <data key="d1">V4</data>
 </node>
-<node id="Factor:Sample type">
-  <data key="d0">Factor</data>
-  <data key="d1">Sample type</data>
-</node>
 <node id="Factor:Plant position">
   <data key="d0">Factor</data>
   <data key="d1">Plant position</data>
+</node>
+<node id="Factor:Sample type">
+  <data key="d0">Factor</data>
+  <data key="d1">Sample type</data>
 </node>
 <node id="OSD-413">
   <data key="d0">Study</data>
@@ -120,13 +120,13 @@
   <data key="d0">Hardware</data>
   <data key="d1">Advanced Plant Habitat</data>
 </node>
-<node id="Factor:Hardware component">
-  <data key="d0">Factor</data>
-  <data key="d1">Hardware component</data>
-</node>
 <node id="Factor:Science carrier quadrant">
   <data key="d0">Factor</data>
   <data key="d1">Science carrier quadrant</data>
+</node>
+<node id="Factor:Hardware component">
+  <data key="d0">Factor</data>
+  <data key="d1">Hardware component</data>
 </node>
 <node id="OSD-773">
   <data key="d0">Study</data>
@@ -167,34 +167,34 @@
 <edge source="OSD-766" target="Region:V3-V4">
   <data key="d5">TARGETS_REGION</data>
 </edge>
-<edge source="OSD-766" target="Tissue:fruit">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="OSD-766" target="Tissue:substrate">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="OSD-766" target="Tissue:swab">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="OSD-766" target="Tissue:root">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
 <edge source="OSD-766" target="Tissue:leaf">
   <data key="d5">SAMPLED_TISSUE</data>
 </edge>
 <edge source="OSD-766" target="Tissue:wick">
   <data key="d5">SAMPLED_TISSUE</data>
 </edge>
+<edge source="OSD-766" target="Tissue:swab">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="OSD-766" target="Tissue:fruit">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="OSD-766" target="Tissue:root">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
 <edge source="OSD-766" target="Tissue:water">
   <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="OSD-766" target="Tissue:substrate">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="OSD-766" target="Factor:Light regime (red-rich vs blue-rich)">
+  <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="OSD-766" target="Factor:Spaceflight">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="OSD-766" target="Factor:Tissue type">
-  <data key="d5">HAS_FACTOR</data>
-</edge>
-<edge source="OSD-766" target="Factor:Light regime (red-rich vs blue-rich)">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="Hardware:Veggie" target="OSD-412">
@@ -221,57 +221,6 @@
 <edge source="Assay:16S rRNA amplicon" target="OSD-773">
   <data key="d5">MEASURED_BY</data>
 </edge>
-<edge source="Tissue:fruit" target="OSD-772">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:fruit" target="OSD-773">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:substrate" target="OSD-412">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:substrate" target="OSD-413">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:substrate" target="OSD-414">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:substrate" target="OSD-772">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:substrate" target="OSD-773">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:swab" target="OSD-412">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:swab" target="OSD-413">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:swab" target="OSD-414">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:swab" target="OSD-772">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:swab" target="OSD-773">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:root" target="OSD-412">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:root" target="OSD-413">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:root" target="OSD-414">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:root" target="OSD-772">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
-<edge source="Tissue:root" target="OSD-773">
-  <data key="d5">SAMPLED_TISSUE</data>
-</edge>
 <edge source="Tissue:leaf" target="OSD-412">
   <data key="d5">SAMPLED_TISSUE</data>
 </edge>
@@ -296,7 +245,58 @@
 <edge source="Tissue:wick" target="OSD-414">
   <data key="d5">SAMPLED_TISSUE</data>
 </edge>
+<edge source="Tissue:swab" target="OSD-412">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:swab" target="OSD-413">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:swab" target="OSD-414">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:swab" target="OSD-772">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:swab" target="OSD-773">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:fruit" target="OSD-772">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:fruit" target="OSD-773">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:root" target="OSD-412">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:root" target="OSD-413">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:root" target="OSD-414">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:root" target="OSD-772">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:root" target="OSD-773">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
 <edge source="Tissue:water" target="OSD-773">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:substrate" target="OSD-412">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:substrate" target="OSD-413">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:substrate" target="OSD-414">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:substrate" target="OSD-772">
+  <data key="d5">SAMPLED_TISSUE</data>
+</edge>
+<edge source="Tissue:substrate" target="OSD-773">
   <data key="d5">SAMPLED_TISSUE</data>
 </edge>
 <edge source="Factor:Spaceflight" target="OSD-412">
@@ -326,10 +326,10 @@
 <edge source="OSD-412" target="Region:V4">
   <data key="d5">TARGETS_REGION</data>
 </edge>
-<edge source="OSD-412" target="Factor:Sample type">
+<edge source="OSD-412" target="Factor:Plant position">
   <data key="d5">HAS_FACTOR</data>
 </edge>
-<edge source="OSD-412" target="Factor:Plant position">
+<edge source="OSD-412" target="Factor:Sample type">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="Organism:mixed community" target="OSD-413">
@@ -350,16 +350,16 @@
 <edge source="Region:V4" target="OSD-772">
   <data key="d5">TARGETS_REGION</data>
 </edge>
-<edge source="Factor:Sample type" target="OSD-413">
-  <data key="d5">HAS_FACTOR</data>
-</edge>
-<edge source="Factor:Sample type" target="OSD-414">
-  <data key="d5">HAS_FACTOR</data>
-</edge>
 <edge source="Factor:Plant position" target="OSD-413">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="Factor:Plant position" target="OSD-414">
+  <data key="d5">HAS_FACTOR</data>
+</edge>
+<edge source="Factor:Sample type" target="OSD-413">
+  <data key="d5">HAS_FACTOR</data>
+</edge>
+<edge source="Factor:Sample type" target="OSD-414">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="OSD-772" target="Organism:Capsicum annuum">
@@ -368,10 +368,10 @@
 <edge source="OSD-772" target="Hardware:Advanced Plant Habitat">
   <data key="d5">USES_HARDWARE</data>
 </edge>
-<edge source="OSD-772" target="Factor:Hardware component">
+<edge source="OSD-772" target="Factor:Science carrier quadrant">
   <data key="d5">HAS_FACTOR</data>
 </edge>
-<edge source="OSD-772" target="Factor:Science carrier quadrant">
+<edge source="OSD-772" target="Factor:Hardware component">
   <data key="d5">HAS_FACTOR</data>
 </edge>
 <edge source="OSD-773" target="Hardware:Veggie/XROOTS">

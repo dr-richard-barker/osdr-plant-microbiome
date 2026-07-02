@@ -120,13 +120,23 @@ interactive dashboards (Plotly):
 
 Plus an **overview KPI strip** and a **provenance / build-audit log**.
 
-### 🧠 Which microbes are friend or foe?
+### 🧠 Which microbes are friend or foe — and foe to *whom*?
 The [guild engine](src/classify_guild.py) fuses four independent signals —
-a curated prior knowledge base, engineered ecological traits (human-swab
-association, rhizosphere preference, niche breadth, spaceflight response),
-co-occurrence guilt-by-association, and semi-supervised label spreading — to
-score each genus as **likely beneficial** or **likely pathogenic/opportunistic**,
-propagating calls even to genera left deliberately unlabelled. See
+a curated prior knowledge base, guild-specific ecological traits, co-occurrence
+guilt-by-association, and multiclass semi-supervised label spreading — to place
+each genus into one of **four guilds**, propagating calls even to genera left
+deliberately unlabelled. Critically, it keeps the **two distinct meanings of
+"pathogen" separate**:
+
+| Guild | Threatens | Signal | Example |
+|---|---|---|---|
+| 🟢 **Beneficial / PGPR** | — (helps the crop) | plant-tissue resident, N-fixer/methylotroph | *Rhizobium*, *Bacillus* |
+| 🟠 **Plant pathogen** | **the crop** (yield) | living plant / root-vascular association | *Ralstonia* (bacterial wilt) |
+| 🔴 **Human pathogen** | **crew** (food safety) | human-contacted hardware (swab) association | *Staphylococcus*, *Cutibacterium* |
+| ⚪ **Uncertain** | — | ambiguous evidence | — |
+
+A single "pathogen" axis would conflate a crop-yield risk with a crew-health
+risk; the engine reports **two separate risk scores** accordingly. See
 [`data/processed/GUILD_METHOD.md`](data/processed/GUILD_METHOD.md).
 
 ### 🕸️ Graph database

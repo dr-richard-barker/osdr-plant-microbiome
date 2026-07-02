@@ -3,16 +3,16 @@ OSD-766,Organism:Solanum lycopersicum,STUDIES_ORGANISM
 OSD-766,Hardware:Veggie,USES_HARDWARE
 OSD-766,Assay:16S rRNA amplicon,MEASURED_BY
 OSD-766,Region:V3-V4,TARGETS_REGION
-OSD-766,Tissue:fruit,SAMPLED_TISSUE
-OSD-766,Tissue:substrate,SAMPLED_TISSUE
-OSD-766,Tissue:swab,SAMPLED_TISSUE
-OSD-766,Tissue:root,SAMPLED_TISSUE
 OSD-766,Tissue:leaf,SAMPLED_TISSUE
 OSD-766,Tissue:wick,SAMPLED_TISSUE
+OSD-766,Tissue:swab,SAMPLED_TISSUE
+OSD-766,Tissue:fruit,SAMPLED_TISSUE
+OSD-766,Tissue:root,SAMPLED_TISSUE
 OSD-766,Tissue:water,SAMPLED_TISSUE
+OSD-766,Tissue:substrate,SAMPLED_TISSUE
+OSD-766,Factor:Light regime (red-rich vs blue-rich),HAS_FACTOR
 OSD-766,Factor:Spaceflight,HAS_FACTOR
 OSD-766,Factor:Tissue type,HAS_FACTOR
-OSD-766,Factor:Light regime (red-rich vs blue-rich),HAS_FACTOR
 Hardware:Veggie,OSD-412,USES_HARDWARE
 Hardware:Veggie,OSD-413,USES_HARDWARE
 Hardware:Veggie,OSD-414,USES_HARDWARE
@@ -21,23 +21,6 @@ Assay:16S rRNA amplicon,OSD-413,MEASURED_BY
 Assay:16S rRNA amplicon,OSD-414,MEASURED_BY
 Assay:16S rRNA amplicon,OSD-772,MEASURED_BY
 Assay:16S rRNA amplicon,OSD-773,MEASURED_BY
-Tissue:fruit,OSD-772,SAMPLED_TISSUE
-Tissue:fruit,OSD-773,SAMPLED_TISSUE
-Tissue:substrate,OSD-412,SAMPLED_TISSUE
-Tissue:substrate,OSD-413,SAMPLED_TISSUE
-Tissue:substrate,OSD-414,SAMPLED_TISSUE
-Tissue:substrate,OSD-772,SAMPLED_TISSUE
-Tissue:substrate,OSD-773,SAMPLED_TISSUE
-Tissue:swab,OSD-412,SAMPLED_TISSUE
-Tissue:swab,OSD-413,SAMPLED_TISSUE
-Tissue:swab,OSD-414,SAMPLED_TISSUE
-Tissue:swab,OSD-772,SAMPLED_TISSUE
-Tissue:swab,OSD-773,SAMPLED_TISSUE
-Tissue:root,OSD-412,SAMPLED_TISSUE
-Tissue:root,OSD-413,SAMPLED_TISSUE
-Tissue:root,OSD-414,SAMPLED_TISSUE
-Tissue:root,OSD-772,SAMPLED_TISSUE
-Tissue:root,OSD-773,SAMPLED_TISSUE
 Tissue:leaf,OSD-412,SAMPLED_TISSUE
 Tissue:leaf,OSD-413,SAMPLED_TISSUE
 Tissue:leaf,OSD-414,SAMPLED_TISSUE
@@ -46,7 +29,24 @@ Tissue:leaf,OSD-773,SAMPLED_TISSUE
 Tissue:wick,OSD-412,SAMPLED_TISSUE
 Tissue:wick,OSD-413,SAMPLED_TISSUE
 Tissue:wick,OSD-414,SAMPLED_TISSUE
+Tissue:swab,OSD-412,SAMPLED_TISSUE
+Tissue:swab,OSD-413,SAMPLED_TISSUE
+Tissue:swab,OSD-414,SAMPLED_TISSUE
+Tissue:swab,OSD-772,SAMPLED_TISSUE
+Tissue:swab,OSD-773,SAMPLED_TISSUE
+Tissue:fruit,OSD-772,SAMPLED_TISSUE
+Tissue:fruit,OSD-773,SAMPLED_TISSUE
+Tissue:root,OSD-412,SAMPLED_TISSUE
+Tissue:root,OSD-413,SAMPLED_TISSUE
+Tissue:root,OSD-414,SAMPLED_TISSUE
+Tissue:root,OSD-772,SAMPLED_TISSUE
+Tissue:root,OSD-773,SAMPLED_TISSUE
 Tissue:water,OSD-773,SAMPLED_TISSUE
+Tissue:substrate,OSD-412,SAMPLED_TISSUE
+Tissue:substrate,OSD-413,SAMPLED_TISSUE
+Tissue:substrate,OSD-414,SAMPLED_TISSUE
+Tissue:substrate,OSD-772,SAMPLED_TISSUE
+Tissue:substrate,OSD-773,SAMPLED_TISSUE
 Factor:Spaceflight,OSD-412,HAS_FACTOR
 Factor:Spaceflight,OSD-413,HAS_FACTOR
 Factor:Spaceflight,OSD-414,HAS_FACTOR
@@ -56,22 +56,22 @@ Factor:Tissue type,OSD-772,HAS_FACTOR
 Factor:Tissue type,OSD-773,HAS_FACTOR
 OSD-412,Organism:mixed community,STUDIES_ORGANISM
 OSD-412,Region:V4,TARGETS_REGION
-OSD-412,Factor:Sample type,HAS_FACTOR
 OSD-412,Factor:Plant position,HAS_FACTOR
+OSD-412,Factor:Sample type,HAS_FACTOR
 Organism:mixed community,OSD-413,STUDIES_ORGANISM
 Organism:mixed community,OSD-414,STUDIES_ORGANISM
 Organism:mixed community,OSD-773,STUDIES_ORGANISM
 Region:V4,OSD-413,TARGETS_REGION
 Region:V4,OSD-414,TARGETS_REGION
 Region:V4,OSD-772,TARGETS_REGION
-Factor:Sample type,OSD-413,HAS_FACTOR
-Factor:Sample type,OSD-414,HAS_FACTOR
 Factor:Plant position,OSD-413,HAS_FACTOR
 Factor:Plant position,OSD-414,HAS_FACTOR
+Factor:Sample type,OSD-413,HAS_FACTOR
+Factor:Sample type,OSD-414,HAS_FACTOR
 OSD-772,Organism:Capsicum annuum,STUDIES_ORGANISM
 OSD-772,Hardware:Advanced Plant Habitat,USES_HARDWARE
-OSD-772,Factor:Hardware component,HAS_FACTOR
 OSD-772,Factor:Science carrier quadrant,HAS_FACTOR
+OSD-772,Factor:Hardware component,HAS_FACTOR
 OSD-773,Hardware:Veggie/XROOTS,USES_HARDWARE
 OSD-773,Assay:ITS amplicon,MEASURED_BY
 OSD-773,Region:ITS1;V4,TARGETS_REGION

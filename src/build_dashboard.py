@@ -154,19 +154,27 @@ def panel_graph() -> str:
 
 def panel_guild() -> str:
     df = pd.read_csv(config.PROCESSED_DIR / "guild_scores.csv")
-    cmap = {"likely beneficial": "#117733",
-            "likely pathogen/opportunist": "#CC6677", "uncertain": "#999999"}
+    cmap = {"beneficial": "#117733", "plant_pathogen": "#E69F00",
+            "human_pathogen": "#CC6677", "uncertain": "#999999"}
+    df["guild"] = df["guild_call"].str.replace("_", " ")
     fig = px.scatter(
-        df, x="P_beneficial", y="pathogen_risk", color="guild_call",
-        size="prevalence", text="genus", color_discrete_map=cmap,
-        hover_data={"prior": True, "swab_assoc": ":.2f", "confidence": ":.2f",
-                    "P_beneficial": ":.2f", "pathogen_risk": ":.2f",
-                    "genus": False, "prevalence": False},
-        labels={"P_beneficial": "P(beneficial)", "pathogen_risk": "Pathogen risk score",
+        df, x="human_pathogen_risk", y="plant_pathogen_risk",
+        color="guild_call", size="prevalence", text="genus",
+        color_discrete_map=cmap,
+        hover_data={"prior": True, "P_beneficial": ":.2f",
+                    "P_plant_pathogen": ":.2f", "P_human_pathogen": ":.2f",
+                    "confidence": ":.2f", "genus": False, "prevalence": False,
+                    "guild_call": False},
+        labels={"human_pathogen_risk": "Human-pathogen risk (food-safety / crew health)",
+                "plant_pathogen_risk": "Plant-pathogen risk (crop yield)",
                 "guild_call": "Guild call"},
-        title="Ecological-guild inference: pathogen risk vs beneficial probability")
+        title="Guild inference — plant pathogens vs human pathogens are distinct axes")
     fig.update_traces(textposition="top center", textfont_size=9,
                       marker=dict(line=dict(width=0.6, color="#333")))
+    fig.add_annotation(x=0.02, y=0.9, text="phytopathogens<br>(crop risk)", showarrow=False,
+                       font=dict(size=10, color="#8a6d00"), xanchor="left")
+    fig.add_annotation(x=0.9, y=0.05, text="clinical opportunists<br>(food-safety risk)",
+                       showarrow=False, font=dict(size=10, color="#8a2f3d"), xanchor="right")
     fig.update_layout(height=560)
     return _fig(fig)
 
@@ -265,15 +273,19 @@ a.ext{{color:var(--accent)}}
     entities (hardware, organism, assay, region, tissue, factor). Studies that
     cluster together share comparison-relevant attributes; the same graph is
     exported as GraphML / Cypher for Gephi, Cytoscape or Neo4j.</p>{graph}</section>
-  <section id="guild"><h2>Pathogen vs Beneficial — Guild Inference (ML)</h2>
-    <p>Semi-supervised ecological-guild inference fusing a curated prior
-    knowledge base, engineered trait features, co-occurrence guilt-by-association
-    and label spreading. Points upper-left are likely beneficial; lower-right,
-    likely pathogenic/opportunistic. See
-    <code>data/processed/GUILD_METHOD.md</code>.</p>{guild}
+  <section id="guild"><h2>Guild Inference (ML): Beneficial · Plant Pathogen · Human Pathogen</h2>
+    <p>Multiclass semi-supervised inference of microbial ecological guilds,
+    fusing a curated prior knowledge base, guild-specific trait features,
+    co-occurrence guilt-by-association and label spreading. Crucially, the two
+    very different meanings of <em>pathogen</em> are kept on <b>separate axes</b>:
+    a <b>plant-pathogen</b> (phytopathogen, e.g. <i>Ralstonia</i>) is a
+    <b>crop-yield</b> risk, whereas a <b>human/clinical pathogen</b>
+    (e.g. <i>Staphylococcus</i>) is a <b>food-safety / crew-health</b> risk. They
+    co-occur in the same hardware but threaten different hosts and demand
+    different responses. See <code>data/processed/GUILD_METHOD.md</code>.</p>{guild}
     <div class="banner"><b>Interpretation caveat.</b> Guild is often strain- not
     genus-level; scores here use illustrative abundances and are a
-    decision-support prior, not a clinical determination.</div></section>
+    decision-support prior — not a phytosanitary or clinical determination.</div></section>
   <section id="provenance"><h2>Build Provenance &amp; Audit Log</h2>
     <ul>{prv}</ul>
     <table class="log"><tr><th>Pipeline step</th><th>Detail</th><th>Rows</th></tr>
