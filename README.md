@@ -28,9 +28,12 @@ citable, interactive resource.
 | G2 | **Integrate** study/assay/factor/sample metadata + community profiles into one **relational database** (SQLite, documented schema). | Interoperable |
 | G3 | **Analyse** — standard alpha (Shannon, Simpson, Pielou, observed) and beta (Bray-Curtis PCoA) diversity, taxonomic composition, tissue-niche partitioning. | Reusable |
 | G4 | **Visualise** — a series of **interactive dashboards integrated into a single report** (`dashboards/report.html`). | Accessible |
-| G5 | **Package for Zenodo** — `.zenodo.json`, `CITATION.cff`, license, data dictionary, deterministic reproducible build. | Findable + Reusable |
-| G6 | **Communicate** — a manuscript in **npj Microgravity** style with accurate references in the journal's format. | — |
-| G7 | **Track provenance** — every row flags whether it is OSDR-sourced, computed, or illustrative. | Reusable |
+| G5 | **Graph database** — a **knowledge graph** of study↔metadata relationships (GraphML / JSON / CSV / Neo4j Cypher) revealing natural comparison groups. | Interoperable |
+| G6 | **Guild ML** — a semi-supervised engine inferring which taxa are likely **pathogenic vs beneficial** (weak-supervision + traits + co-occurrence + label spreading). | Reusable |
+| G7 | **Dated figure snapshots** — publication figures (PNG+SVG) exported to `figures/<date>/`, acknowledging the corpus is **transient** (the FAIR-dashboard rationale). | Findable |
+| G8 | **Package for Zenodo** — `.zenodo.json`, `CITATION.cff`, license, data dictionary, deterministic reproducible build. | Findable + Reusable |
+| G9 | **Communicate** — a manuscript in **npj Microgravity** style (text + figures versions) with accurate references in the journal's format. | — |
+| G10 | **Track provenance** — every row flags whether it is OSDR-sourced, computed, or illustrative. | Reusable |
 
 ---
 
@@ -47,14 +50,17 @@ citable, interactive resource.
 | G2 | Built database (6 studies · 443 samples · 8.9k abundances) | ✅ | `data/db/osdr_plant_microbiome.db` |
 | G3 | Diversity / ordination analysis | ✅ | [`src/analysis.py`](src/analysis.py) |
 | G3 | Real feature-table ingestion hook | ✅ | `analysis.load_real_feature_table()` |
-| G4 | Interactive integrated report (6 dashboards) | ✅ | [`dashboards/report.html`](dashboards/report.html) |
-| G5 | Zenodo metadata + citation + license | ✅ | [`.zenodo.json`](.zenodo.json) · [`CITATION.cff`](CITATION.cff) · [`LICENSE`](LICENSE) |
-| G5 | Data dictionary | ✅ | [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) |
-| G6 | npj Microgravity manuscript + references | ✅ | [`manuscript/manuscript.md`](manuscript/manuscript.md) · [`manuscript/references.bib`](manuscript/references.bib) |
-| G7 | Per-row provenance flags + audit log | ✅ | `provenance_log`, `data_provenance` columns |
+| G4 | Interactive integrated report (8 dashboards) | ✅ | [`dashboards/report.html`](dashboards/report.html) |
+| G5 | Knowledge graph + study-similarity projection | ✅ | [`src/build_graph.py`](src/build_graph.py) · `data/graph/*.graphml` · `load_neo4j.cypher` |
+| G6 | Guild-inference ML engine + method card | ✅ | [`src/classify_guild.py`](src/classify_guild.py) · `data/processed/GUILD_METHOD.md` |
+| G7 | Dated figure snapshot (6 figs, PNG+SVG) + transience manifest | ✅ | [`figures/2026-07-02/`](figures/2026-07-02/) |
+| G8 | Zenodo metadata + citation + license + data dictionary | ✅ | [`.zenodo.json`](.zenodo.json) · [`CITATION.cff`](CITATION.cff) · [`LICENSE`](LICENSE) · [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) |
+| G9 | npj manuscript — text + **figures** versions + references | ✅ | [`manuscript/manuscript.md`](manuscript/manuscript.md) · [`manuscript/manuscript_with_figures.md`](manuscript/manuscript_with_figures.md) · [`references.bib`](manuscript/references.bib) |
+| G10 | Per-row provenance flags + audit log | ✅ | `provenance_log`, `data_provenance` columns |
+| — | CI: reproducible build + publish report to GitHub Pages | ✅ | [`.github/workflows/build-and-deploy.yml`](.github/workflows/build-and-deploy.yml) |
 | — | **Ingest real OSDR feature tables** (replace illustrative model) | ⬜ | roadmap |
 | — | ITS/fungal analysis branch for OSD-773 | ⬜ | roadmap |
-| — | CI to re-run build + publish report to GitHub Pages | ⬜ | roadmap |
+| — | Guild engine v2: strain-level + SparCC/SPIEC-EASI + PICRUSt2 traits | ⬜ | roadmap |
 | — | Differential-abundance testing (ANCOM-BC / ALDEx2) | ⬜ | roadmap |
 
 ---
@@ -100,7 +106,7 @@ sqlite3.connect('data/db/osdr_plant_microbiome.db')))"
 
 ## 📈 What the report contains
 
-`dashboards/report.html` is one self-contained, navigable file with six
+`dashboards/report.html` is one self-contained, navigable file with eight
 interactive dashboards (Plotly):
 
 1. **Study registry** — curated accessions linked to OSDR.
@@ -109,8 +115,31 @@ interactive dashboards (Plotly):
 4. **Community ordination** — Bray-Curtis PCoA with a per-study selector.
 5. **Taxonomic composition** — phylum-level, ground vs spaceflight.
 6. **Niche heatmap** — genus × tissue partitioning across all studies.
+7. **Graph database** — interactive study↔metadata knowledge graph.
+8. **Guild ML** — pathogen-risk vs beneficial-probability for each genus.
 
 Plus an **overview KPI strip** and a **provenance / build-audit log**.
+
+### 🧠 Which microbes are friend or foe?
+The [guild engine](src/classify_guild.py) fuses four independent signals —
+a curated prior knowledge base, engineered ecological traits (human-swab
+association, rhizosphere preference, niche breadth, spaceflight response),
+co-occurrence guilt-by-association, and semi-supervised label spreading — to
+score each genus as **likely beneficial** or **likely pathogenic/opportunistic**,
+propagating calls even to genera left deliberately unlabelled. See
+[`data/processed/GUILD_METHOD.md`](data/processed/GUILD_METHOD.md).
+
+### 🕸️ Graph database
+[`src/build_graph.py`](src/build_graph.py) builds a knowledge graph (studies ↔
+hardware / organism / assay / region / tissue / factor) and a study-similarity
+projection, exported as **GraphML, node-link JSON, CSVs and a Neo4j Cypher
+loader** for Gephi / Cytoscape / Neo4j.
+
+### ⏳ Transient by design
+The set of OSDR plant-microbiome studies grows over time, so every figure is a
+**dated snapshot** under [`figures/<date>/`](figures/2026-07-02/) with a
+manifest stating this explicitly. The live report always re-derives the current
+picture — this is the whole point of the FAIR-dashboard approach.
 
 ---
 
@@ -142,15 +171,20 @@ OSDR Plant microbiome/
 ├── data/
 │   ├── registry/study_registry.csv    ← curated accessions (versioned)
 │   ├── raw/                            ← cached live OSDR JSON (fetch)
-│   ├── processed/                      ← tidy analytics CSVs
+│   ├── processed/                      ← tidy analytics + guild scores + method card
+│   ├── graph/                          ← knowledge graph (GraphML/JSON/CSV/Cypher)
 │   └── db/osdr_plant_microbiome.db     ← the relational database
 ├── db/schema.sql                  ← DDL (9 tables, 3 views)
 ├── src/
-│   ├── config.py · fetch_osdr.py · build_database.py
-│   ├── analysis.py · build_dashboard.py
-├── dashboards/report.html         ← integrated interactive report
+│   ├── config.py · fetch_osdr.py · build_database.py · analysis.py
+│   ├── build_graph.py · classify_guild.py · make_figures.py · build_dashboard.py
+├── dashboards/report.html         ← integrated interactive report (8 dashboards)
+├── figures/2026-07-02/            ← dated figure snapshot (Fig1–6, PNG+SVG) + MANIFEST
 ├── docs/DATA_DICTIONARY.md
-└── manuscript/manuscript.md · references.bib
+└── manuscript/
+    ├── manuscript.md                  ← text version
+    ├── manuscript_with_figures.md     ← embedded-figures version + npj legends
+    └── references.bib
 ```
 
 ---

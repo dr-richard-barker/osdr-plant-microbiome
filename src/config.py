@@ -23,5 +23,17 @@ OSDR_FILES_URL = "https://osdr.nasa.gov/osdr/data/osd/files/{osd_id}"
 # every build is byte-for-byte reproducible (FAIR: Reusable).
 RANDOM_SEED = 767
 
+# Corpus snapshot date. The set of plant-microbiome studies in OSDR grows
+# over time, so every figure/result is an explicitly dated snapshot. This is
+# the raison d'etre of the live FAIR-dashboard approach: the report re-derives
+# the current state, while archived figures record a fixed point in time.
+SNAPSHOT_DATE = "2026-07-02"
+
+FIGURES_DIR   = ROOT / "figures" / SNAPSHOT_DATE
+GRAPH_DIR     = DATA_DIR / "graph"
+
+for _d in (FIGURES_DIR, GRAPH_DIR):
+    _d.mkdir(parents=True, exist_ok=True)
+
 for _d in (RAW_DIR, PROCESSED_DIR, DB_PATH.parent, DASHBOARD_DIR):
     _d.mkdir(parents=True, exist_ok=True)

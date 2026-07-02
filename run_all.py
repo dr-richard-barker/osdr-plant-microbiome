@@ -9,7 +9,8 @@ Steps: (0 optional fetch) -> build_database -> analysis -> build_dashboard.
 Deterministic: same registry + seed => identical database and report.
 """
 import argparse
-from src import build_database, analysis, build_dashboard
+from src import (build_database, analysis, build_graph, classify_guild,
+                 make_figures, build_dashboard)
 
 
 def main():
@@ -20,14 +21,20 @@ def main():
 
     if args.fetch:
         from src import fetch_osdr
-        print("== [0/3] Fetching live OSDR metadata ==")
+        print("== [0/6] Fetching live OSDR metadata ==")
         fetch_osdr.fetch_all()
 
-    print("== [1/3] Building relational database ==")
+    print("== [1/6] Building relational database ==")
     build_database.main()
-    print("\n== [2/3] Running analysis / diversity metrics ==")
+    print("\n== [2/6] Running analysis / diversity metrics ==")
     analysis.main()
-    print("\n== [3/3] Rendering integrated interactive report ==")
+    print("\n== [3/6] Building study-metadata graph database ==")
+    build_graph.main()
+    print("\n== [4/6] Inferring pathogen/beneficial guilds ==")
+    classify_guild.main()
+    print("\n== [5/6] Exporting dated publication figures ==")
+    make_figures.main()
+    print("\n== [6/6] Rendering integrated interactive report ==")
     build_dashboard.build()
     print("\nDone. Open dashboards/report.html")
 

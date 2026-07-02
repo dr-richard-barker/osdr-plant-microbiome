@@ -144,6 +144,33 @@ def panel_genus_heatmap(con) -> str:
     return _fig(fig)
 
 
+def panel_graph() -> str:
+    """Load the pre-rendered interactive knowledge-graph network fragment."""
+    frag = config.GRAPH_DIR / "network_fragment.html"
+    if frag.exists():
+        return frag.read_text(encoding="utf-8")
+    return "<p><em>Graph not built — run <code>python -m src.build_graph</code>.</em></p>"
+
+
+def panel_guild() -> str:
+    df = pd.read_csv(config.PROCESSED_DIR / "guild_scores.csv")
+    cmap = {"likely beneficial": "#117733",
+            "likely pathogen/opportunist": "#CC6677", "uncertain": "#999999"}
+    fig = px.scatter(
+        df, x="P_beneficial", y="pathogen_risk", color="guild_call",
+        size="prevalence", text="genus", color_discrete_map=cmap,
+        hover_data={"prior": True, "swab_assoc": ":.2f", "confidence": ":.2f",
+                    "P_beneficial": ":.2f", "pathogen_risk": ":.2f",
+                    "genus": False, "prevalence": False},
+        labels={"P_beneficial": "P(beneficial)", "pathogen_risk": "Pathogen risk score",
+                "guild_call": "Guild call"},
+        title="Ecological-guild inference: pathogen risk vs beneficial probability")
+    fig.update_traces(textposition="top center", textfont_size=9,
+                      marker=dict(line=dict(width=0.6, color="#333")))
+    fig.update_layout(height=560)
+    return _fig(fig)
+
+
 def provenance_rows(con) -> str:
     log = pd.read_sql_query("SELECT step, detail, row_count FROM provenance_log", con)
     prov = pd.read_sql_query(
@@ -196,7 +223,8 @@ a.ext{{color:var(--accent)}}
   <a href="#about">Overview</a><a href="#registry">Study Registry</a>
   <a href="#design">Sampling Design</a><a href="#alpha">Alpha Diversity</a>
   <a href="#beta">Ordination</a><a href="#phylum">Composition</a>
-  <a href="#niche">Niche Heatmap</a><a href="#provenance">Provenance</a>
+  <a href="#niche">Niche Heatmap</a><a href="#graph">Graph DB</a>
+  <a href="#guild">Guild ML</a><a href="#provenance">Provenance</a>
 </nav>
 <main>
   <section id="about">
@@ -232,6 +260,20 @@ a.ext{{color:var(--accent)}}
   <section id="beta"><h2>Community Ordination (PCoA)</h2>{pcoa}</section>
   <section id="phylum"><h2>Taxonomic Composition</h2>{phylum}</section>
   <section id="niche"><h2>Genus × Tissue Niche Heatmap</h2>{heatmap}</section>
+  <section id="graph"><h2>Study-Metadata Graph Database</h2>
+    <p>Heterogeneous knowledge graph linking studies to their shared metadata
+    entities (hardware, organism, assay, region, tissue, factor). Studies that
+    cluster together share comparison-relevant attributes; the same graph is
+    exported as GraphML / Cypher for Gephi, Cytoscape or Neo4j.</p>{graph}</section>
+  <section id="guild"><h2>Pathogen vs Beneficial — Guild Inference (ML)</h2>
+    <p>Semi-supervised ecological-guild inference fusing a curated prior
+    knowledge base, engineered trait features, co-occurrence guilt-by-association
+    and label spreading. Points upper-left are likely beneficial; lower-right,
+    likely pathogenic/opportunistic. See
+    <code>data/processed/GUILD_METHOD.md</code>.</p>{guild}
+    <div class="banner"><b>Interpretation caveat.</b> Guild is often strain- not
+    genus-level; scores here use illustrative abundances and are a
+    decision-support prior, not a clinical determination.</div></section>
   <section id="provenance"><h2>Build Provenance &amp; Audit Log</h2>
     <ul>{prv}</ul>
     <table class="log"><tr><th>Pipeline step</th><th>Detail</th><th>Rows</th></tr>
@@ -259,7 +301,8 @@ def build() -> None:
         n_abund=f'{n("SELECT COUNT(*) FROM abundance"):,}',
         registry=panel_registry(con), sampling=panel_sampling(con),
         alpha=panel_alpha(con), pcoa=panel_pcoa(con), phylum=panel_phylum(con),
-        heatmap=panel_genus_heatmap(con), log=log_rows, prv=prv_rows,
+        heatmap=panel_genus_heatmap(con), graph=panel_graph(),
+        guild=panel_guild(), log=log_rows, prv=prv_rows,
         links=links, seed=config.RANDOM_SEED)
     con.close()
     config.REPORT_HTML.write_text(html, encoding="utf-8")

@@ -1,6 +1,6 @@
 {
   "title": "OSDR-PlantMicrobiome: a FAIR relational database, analysis pipeline and interactive report for NASA OSDR plant-associated microbiome datasets",
-  "description": "<p>A Findable, Accessible, Interoperable and Reusable (FAIR) research-software tool that harvests plant-associated microbiome studies from the NASA Open Science Data Repository (OSDR), integrates their study/assay/factor/sample metadata into a normalised relational (SQLite) database, computes standard microbial-ecology diversity metrics, and renders a single self-contained interactive HTML report with linked dashboards (study registry, sampling design, alpha diversity, Bray-Curtis PCoA ordination, taxonomic composition and a genus-by-tissue niche heatmap). Ships with a curated, versioned registry of confirmed OSDR plant-microbiome accessions (OSD-412/413/414 Veggie leafy greens; OSD-766 tomato; OSD-772 Chile pepper; OSD-773 multi-species) and a live OSDR API fetcher for on-boarding new studies. Fully reproducible (fixed seed); data provenance is tracked per row so repository-sourced facts are distinguishable from tool-derived and illustrative values.</p>",
+  "description": "<p>A Findable, Accessible, Interoperable and Reusable (FAIR) research-software tool that harvests plant-associated microbiome studies from the NASA Open Science Data Repository (OSDR), integrates their study/assay/factor/sample metadata into both a normalised relational (SQLite) database and a knowledge graph, computes standard microbial-ecology diversity metrics, infers likely microbial ecological guilds (pathogenic vs beneficial) with a semi-supervised machine-learning engine, and renders a single self-contained interactive HTML report with linked dashboards (study registry, sampling design, alpha diversity, Bray-Curtis PCoA ordination, taxonomic composition, genus-by-tissue niche heatmap, an interactive study-metadata knowledge graph, and guild inference). Ships with a curated, versioned registry of confirmed OSDR plant-microbiome accessions (OSD-412/413/414 Veggie leafy greens; OSD-766 tomato; OSD-772 Chile pepper; OSD-773 multi-species), a live OSDR API fetcher for on-boarding new studies, graph exports (GraphML/JSON/CSV/Neo4j Cypher), and a dated snapshot of publication figures with an npj Microgravity-style manuscript. The corpus is transient by design: the tool re-derives the current state on each deterministic build and stamps every figure and record with its snapshot date and per-row provenance, so repository-sourced facts are distinguishable from tool-computed and illustrative values.</p>",
   "upload_type": "software",
   "access_right": "open",
   "license": "CC-BY-4.0",
@@ -13,6 +13,10 @@
     "16S rRNA",
     "amplicon sequencing",
     "microbial ecology",
+    "knowledge graph",
+    "machine learning",
+    "plant pathogen detection",
+    "plant growth-promoting bacteria",
     "FAIR data",
     "reproducible research",
     "Veggie",

@@ -1,0 +1,582 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "ntype": "Study",
+      "label": "OSD-766",
+      "n_samples": 144,
+      "title": "The microbial communities of a tomato crop grown in Veggie under different lighting regimes on the International Space Station",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-766",
+      "id": "OSD-766"
+    },
+    {
+      "ntype": "Organism",
+      "label": "Solanum lycopersicum",
+      "id": "Organism:Solanum lycopersicum"
+    },
+    {
+      "ntype": "Hardware",
+      "label": "Veggie",
+      "id": "Hardware:Veggie"
+    },
+    {
+      "ntype": "Assay",
+      "label": "16S rRNA amplicon",
+      "id": "Assay:16S rRNA amplicon"
+    },
+    {
+      "ntype": "Region",
+      "label": "V3-V4",
+      "id": "Region:V3-V4"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "fruit",
+      "id": "Tissue:fruit"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "substrate",
+      "id": "Tissue:substrate"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "swab",
+      "id": "Tissue:swab"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "root",
+      "id": "Tissue:root"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "leaf",
+      "id": "Tissue:leaf"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "wick",
+      "id": "Tissue:wick"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "water",
+      "id": "Tissue:water"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Spaceflight",
+      "id": "Factor:Spaceflight"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Tissue type",
+      "id": "Factor:Tissue type"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Light regime (red-rich vs blue-rich)",
+      "id": "Factor:Light regime (red-rich vs blue-rich)"
+    },
+    {
+      "ntype": "Study",
+      "label": "OSD-412",
+      "n_samples": 47,
+      "title": "Spatial characterization of microbial communities on multi-species leafy greens grown in Veggie VEG-03D on the ISS",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-412",
+      "id": "OSD-412"
+    },
+    {
+      "ntype": "Organism",
+      "label": "mixed community",
+      "id": "Organism:mixed community"
+    },
+    {
+      "ntype": "Region",
+      "label": "V4",
+      "id": "Region:V4"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Sample type",
+      "id": "Factor:Sample type"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Plant position",
+      "id": "Factor:Plant position"
+    },
+    {
+      "ntype": "Study",
+      "label": "OSD-413",
+      "n_samples": 48,
+      "title": "Spatial characterization of microbial communities on multi-species leafy greens grown in Veggie VEG-03E on the ISS",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-413",
+      "id": "OSD-413"
+    },
+    {
+      "ntype": "Study",
+      "label": "OSD-414",
+      "n_samples": 48,
+      "title": "Spatial characterization of microbial communities on multi-species leafy greens grown in Veggie VEG-03F on the ISS",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-414",
+      "id": "OSD-414"
+    },
+    {
+      "ntype": "Study",
+      "label": "OSD-772",
+      "n_samples": 96,
+      "title": "Evaluating microbial community profiles of Chile peppers grown on the International Space Station",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-772",
+      "id": "OSD-772"
+    },
+    {
+      "ntype": "Organism",
+      "label": "Capsicum annuum",
+      "id": "Organism:Capsicum annuum"
+    },
+    {
+      "ntype": "Hardware",
+      "label": "Advanced Plant Habitat",
+      "id": "Hardware:Advanced Plant Habitat"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Hardware component",
+      "id": "Factor:Hardware component"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Science carrier quadrant",
+      "id": "Factor:Science carrier quadrant"
+    },
+    {
+      "ntype": "Study",
+      "label": "OSD-773",
+      "n_samples": 60,
+      "title": "Amplicon characterization of microbial communities from multi-species plant growth on the ISS",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-773",
+      "id": "OSD-773"
+    },
+    {
+      "ntype": "Hardware",
+      "label": "Veggie/XROOTS",
+      "id": "Hardware:Veggie/XROOTS"
+    },
+    {
+      "ntype": "Assay",
+      "label": "ITS amplicon",
+      "id": "Assay:ITS amplicon"
+    },
+    {
+      "ntype": "Region",
+      "label": "ITS1;V4",
+      "id": "Region:ITS1;V4"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Harvest timepoint",
+      "id": "Factor:Harvest timepoint"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Cultivar",
+      "id": "Factor:Cultivar"
+    }
+  ],
+  "links": [
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "OSD-766",
+      "target": "Organism:Solanum lycopersicum"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "OSD-766",
+      "target": "Hardware:Veggie"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "OSD-766",
+      "target": "Assay:16S rRNA amplicon"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "OSD-766",
+      "target": "Region:V3-V4"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:fruit"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:substrate"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:swab"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:root"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:leaf"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:wick"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:water"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-766",
+      "target": "Factor:Spaceflight"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-766",
+      "target": "Factor:Tissue type"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-766",
+      "target": "Factor:Light regime (red-rich vs blue-rich)"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "Hardware:Veggie",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "Hardware:Veggie",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "Hardware:Veggie",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "Assay:16S rRNA amplicon",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:fruit",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:fruit",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:substrate",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:wick",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:water",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Spaceflight",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Spaceflight",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Spaceflight",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Spaceflight",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Spaceflight",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Tissue type",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Tissue type",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "OSD-412",
+      "target": "Organism:mixed community"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "OSD-412",
+      "target": "Region:V4"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-412",
+      "target": "Factor:Sample type"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-412",
+      "target": "Factor:Plant position"
+    },
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "Organism:mixed community",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "Organism:mixed community",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "Organism:mixed community",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "Region:V4",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "Region:V4",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "Region:V4",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Sample type",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Sample type",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Plant position",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Plant position",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "STUDIES_ORGANISM",
+      "source": "OSD-772",
+      "target": "Organism:Capsicum annuum"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "OSD-772",
+      "target": "Hardware:Advanced Plant Habitat"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-772",
+      "target": "Factor:Hardware component"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-772",
+      "target": "Factor:Science carrier quadrant"
+    },
+    {
+      "rel": "USES_HARDWARE",
+      "source": "OSD-773",
+      "target": "Hardware:Veggie/XROOTS"
+    },
+    {
+      "rel": "MEASURED_BY",
+      "source": "OSD-773",
+      "target": "Assay:ITS amplicon"
+    },
+    {
+      "rel": "TARGETS_REGION",
+      "source": "OSD-773",
+      "target": "Region:ITS1;V4"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-773",
+      "target": "Factor:Harvest timepoint"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-773",
+      "target": "Factor:Cultivar"
+    }
+  ]
+}
