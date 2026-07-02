@@ -1,0 +1,21 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Richard Barker and contributors.
+
+This work — comprising the source code, curated study registry, relational
+database schema, generated database, dashboards and manuscript in this
+repository — is licensed under the Creative Commons Attribution 4.0
+International License. You are free to share and adapt the material for any
+purpose, even commercially, provided you give appropriate credit, provide a
+link to the license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+------------------------------------------------------------------------------
+Third-party data attribution
+------------------------------------------------------------------------------
+Study, assay, factor and sample metadata are derived from the NASA Open
+Science Data Repository (OSDR / GeneLab, https://osdr.nasa.gov). NASA OSDR
+data are released under the NASA Open Data policy. Please cite the individual
+OSD accessions (see data/registry/study_registry.csv and manuscript
+references) when reusing the integrated data.

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "OSDR-PlantMicrobiome: a FAIR relational database, pipeline and interactive report for NASA OSDR plant-associated microbiome datasets"
+abstract: >-
+  A FAIR research-software tool that harvests plant-associated microbiome
+  studies from the NASA Open Science Data Repository (OSDR), integrates their
+  metadata into a normalised relational database, computes microbial-ecology
+  diversity metrics, and renders an interactive integrated HTML report.
+type: software
+version: 0.1.0
+license: CC-BY-4.0
+date-released: "2026-07-01"
+repository-code: "https://github.com/dr-richard-barker/osdr-plant-microbiome"
+keywords:
+  - space biology
+  - plant microbiome
+  - spaceflight
+  - NASA OSDR
+  - 16S rRNA
+  - FAIR data
+  - reproducible research
+authors:
+  - family-names: Barker
+    given-names: Richard
+    orcid: "https://orcid.org/0000-0002-0002-0002"
+    affiliation: "AstroBotany / University of Wisconsin-Madison"
+references:
+  - type: data
+    title: "The microbial communities of a tomato crop grown in Veggie under different lighting regimes on the ISS"
+    authors:
+      - name: "NASA OSDR contributors"
+    url: "https://osdr.nasa.gov/bio/repo/data/studies/OSD-766"
+  - type: data
+    title: "Evaluating microbial community profiles of Chile peppers grown on the ISS"
+    authors:
+      - name: "NASA OSDR contributors"
+    doi: "10.26030/mjvk-v435"

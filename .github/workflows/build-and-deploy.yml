@@ -1,0 +1,77 @@
+name: Build database & publish report
+
+# Rebuilds the relational database, analytics and interactive report on every
+# push to main, then publishes dashboards/report.html to GitHub Pages.
+# The build is deterministic (seed 767) so the published report is reproducible.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Reproducible build (DB -> analytics -> report)
+        run: python run_all.py
+
+      - name: Sanity-check build outputs
+        run: |
+          test -f data/db/osdr_plant_microbiome.db
+          test -f dashboards/report.html
+          python - <<'PY'
+          import sqlite3
+          c = sqlite3.connect("data/db/osdr_plant_microbiome.db")
+          n = c.execute("SELECT COUNT(*) FROM studies").fetchone()[0]
+          assert n >= 6, f"expected >=6 studies, got {n}"
+          print(f"OK: {n} studies in database")
+          PY
+
+      - name: Stage site (report as index.html + raw artefacts)
+        run: |
+          mkdir -p _site
+          cp dashboards/report.html _site/index.html
+          cp -r dashboards _site/dashboards
+          mkdir -p _site/data
+          cp -r data/processed _site/data/processed
+          cp data/db/osdr_plant_microbiome.db _site/data/
+          cp data/registry/study_registry.csv _site/data/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

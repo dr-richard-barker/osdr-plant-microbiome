@@ -1,0 +1,45 @@
+{
+  "title": "OSDR-PlantMicrobiome: a FAIR relational database, analysis pipeline and interactive report for NASA OSDR plant-associated microbiome datasets",
+  "description": "<p>A Findable, Accessible, Interoperable and Reusable (FAIR) research-software tool that harvests plant-associated microbiome studies from the NASA Open Science Data Repository (OSDR), integrates their study/assay/factor/sample metadata into a normalised relational (SQLite) database, computes standard microbial-ecology diversity metrics, and renders a single self-contained interactive HTML report with linked dashboards (study registry, sampling design, alpha diversity, Bray-Curtis PCoA ordination, taxonomic composition and a genus-by-tissue niche heatmap). Ships with a curated, versioned registry of confirmed OSDR plant-microbiome accessions (OSD-412/413/414 Veggie leafy greens; OSD-766 tomato; OSD-772 Chile pepper; OSD-773 multi-species) and a live OSDR API fetcher for on-boarding new studies. Fully reproducible (fixed seed); data provenance is tracked per row so repository-sourced facts are distinguishable from tool-derived and illustrative values.</p>",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "space biology",
+    "plant microbiome",
+    "spaceflight",
+    "NASA OSDR",
+    "GeneLab",
+    "16S rRNA",
+    "amplicon sequencing",
+    "microbial ecology",
+    "FAIR data",
+    "reproducible research",
+    "Veggie",
+    "Advanced Plant Habitat",
+    "International Space Station",
+    "astrobotany"
+  ],
+  "creators": [
+    {
+      "name": "Barker, Richard",
+      "affiliation": "AstroBotany / University of Wisconsin-Madison",
+      "orcid": "0000-0002-0002-0002"
+    }
+  ],
+  "related_identifiers": [
+    {"relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-766", "resource_type": "dataset"},
+    {"relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-412", "resource_type": "dataset"},
+    {"relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-413", "resource_type": "dataset"},
+    {"relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-414", "resource_type": "dataset"},
+    {"relation": "isDerivedFrom", "identifier": "10.26030/mjvk-v435", "resource_type": "dataset"},
+    {"relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-773", "resource_type": "dataset"},
+    {"relation": "isSupplementTo", "identifier": "10.1038/s41598-025-20440-9", "resource_type": "publication-article"}
+  ],
+  "communities": [
+    {"identifier": "nasa"},
+    {"identifier": "space-biology"}
+  ],
+  "version": "0.1.0",
+  "language": "eng"
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+# Generated artefacts are reproducible via `python run_all.py`.
+# Keep the committed copies for Zenodo; uncomment to exclude from git:
+# data/db/*.db
+# data/processed/*.csv
+# dashboards/report.html
+data/raw/*.json
+!data/raw/.gitkeep
