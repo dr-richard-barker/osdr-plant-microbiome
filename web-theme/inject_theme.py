@@ -19,7 +19,7 @@ def inject(path):
     if "cose-theme.css" in html:
         return False
     html = html.replace(
-        "</head>", '<link rel="stylesheet" href="assets/cose-theme.css"></head>', 1
+        "</head>", '<link rel="stylesheet" href="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/cose-theme.css"></head>', 1
     )
     html = re.sub(
         r"<body([^>]*)>",
@@ -29,8 +29,8 @@ def inject(path):
     )
     i = html.rfind("</body>")
     scripts = (
-        '<script src="assets/sites.js"></script>'
-        '<script src="assets/theme.js"></script>'
+        '<script src="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/sites.js"></script>'
+        '<script src="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/theme.js"></script>'
     )
     html = html[:i] + scripts + html[i:]
     open(path, "w", encoding="utf-8").write(html)
