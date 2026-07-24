@@ -54,6 +54,11 @@ jobs:
         run: |
           mkdir -p _site
           cp dashboards/report.html _site/index.html
+          # CoSE theme: copy the shared kit and inject the map + branding overlay
+          # into the freshly-generated report (idempotent; keeps the generator untouched).
+          mkdir -p _site/assets
+          cp web-theme/cose-theme.css web-theme/theme.js web-theme/sites.js web-theme/cose-logo.png _site/assets/
+          python web-theme/inject_theme.py _site/index.html
           cp -r dashboards _site/dashboards
           mkdir -p _site/data
           cp -r data/processed _site/data/processed
