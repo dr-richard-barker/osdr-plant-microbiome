@@ -47,7 +47,7 @@ citable, interactive resource.
 | G1 | Live OSDR API fetcher | ✅ | [`src/fetch_osdr.py`](src/fetch_osdr.py) |
 | G2 | Relational schema (9 tables, 3 views) | ✅ | [`db/schema.sql`](db/schema.sql) |
 | G2 | Database builder + loader | ✅ | [`src/build_database.py`](src/build_database.py) |
-| G2 | Built database (6 studies · 443 samples · 8.9k abundances) | ✅ | `data/db/osdr_plant_microbiome.db` |
+| G2 | Built database (6 studies · 461 samples · 9.2k abundances) | ✅ | `data/db/osdr_plant_microbiome.db` |
 | G3 | Diversity / ordination analysis | ✅ | [`src/analysis.py`](src/analysis.py) |
 | G3 | Real feature-table ingestion hook | ✅ | `analysis.load_real_feature_table()` |
 | G4 | Interactive integrated report (8 dashboards) | ✅ | [`dashboards/report.html`](dashboards/report.html) |
@@ -74,7 +74,7 @@ citable, interactive resource.
 | [OSD-413](https://osdr.nasa.gov/bio/repo/data/studies/OSD-413) | Multi-species leafy greens | Veggie VEG-03E | 16S V4 | 48 | high |
 | [OSD-414](https://osdr.nasa.gov/bio/repo/data/studies/OSD-414) | Multi-species leafy greens | Veggie VEG-03F | 16S V4 | 48 | high |
 | [OSD-772](https://osdr.nasa.gov/bio/repo/data/studies/OSD-772) | Chile pepper (*Capsicum annuum* cv. NuMex Española Improved) | Advanced Plant Habitat | 16S V4 | 96 | high |
-| [OSD-773](https://osdr.nasa.gov/bio/repo/data/studies/OSD-773) | Multi-species (radish/lettuce/mizuna/wheat) | Veggie / XROOTS | ITS + 16S | 60 | medium |
+| [OSD-773](https://osdr.nasa.gov/bio/repo/data/studies/OSD-773) | Multi-species (radish/lettuce/mizuna/wheat/tomato/pea) | Veggie / XROOTS | ITS + 16S | 78 | high |
 
 > The registry is versioned; new accessions are added by appending a row and
 > re-running `python run_all.py --fetch`.

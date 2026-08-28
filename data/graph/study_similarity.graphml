@@ -1,120 +1,123 @@
 <?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="shared_attrs" attr.type="string"/>
-<key id="d5" for="edge" attr.name="shared" attr.type="long"/>
-<key id="d4" for="edge" attr.name="weight" attr.type="double"/>
-<key id="d3" for="node" attr.name="organism" attr.type="string"/>
-<key id="d2" for="node" attr.name="hardware" attr.type="string"/>
-<key id="d1" for="node" attr.name="n_samples" attr.type="long"/>
-<key id="d0" for="node" attr.name="ntype" attr.type="string"/>
-<graph edgedefault="undirected"><node id="OSD-766">
-  <data key="d0">Study</data>
-  <data key="d1">144</data>
-  <data key="d2">Veggie</data>
-  <data key="d3">Solanum lycopersicum</data>
-</node>
-<node id="OSD-412">
-  <data key="d0">Study</data>
-  <data key="d1">47</data>
-  <data key="d2">Veggie</data>
-  <data key="d3">mixed community</data>
-</node>
-<node id="OSD-413">
-  <data key="d0">Study</data>
-  <data key="d1">48</data>
-  <data key="d2">Veggie</data>
-  <data key="d3">mixed community</data>
-</node>
-<node id="OSD-414">
-  <data key="d0">Study</data>
-  <data key="d1">48</data>
-  <data key="d2">Veggie</data>
-  <data key="d3">mixed community</data>
-</node>
-<node id="OSD-772">
-  <data key="d0">Study</data>
-  <data key="d1">96</data>
-  <data key="d2">Advanced Plant Habitat</data>
-  <data key="d3">Capsicum annuum</data>
-</node>
-<node id="OSD-773">
-  <data key="d0">Study</data>
-  <data key="d1">60</data>
-  <data key="d2">Veggie/XROOTS</data>
-  <data key="d3">mixed community</data>
-</node>
-<edge source="OSD-766" target="OSD-412">
-  <data key="d4">0.444</data>
-  <data key="d5">8</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-766" target="OSD-413">
-  <data key="d4">0.444</data>
-  <data key="d5">8</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-766" target="OSD-414">
-  <data key="d4">0.444</data>
-  <data key="d5">8</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-766" target="OSD-772">
-  <data key="d4">0.421</data>
-  <data key="d5">8</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-766" target="OSD-773">
-  <data key="d4">0.45</data>
-  <data key="d5">9</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:water</data>
-</edge>
-<edge source="OSD-412" target="OSD-413">
-  <data key="d4">1.0</data>
-  <data key="d5">12</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-412" target="OSD-414">
-  <data key="d4">1.0</data>
-  <data key="d5">12</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-412" target="OSD-772">
-  <data key="d4">0.389</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-412" target="OSD-773">
-  <data key="d4">0.35</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-413" target="OSD-414">
-  <data key="d4">1.0</data>
-  <data key="d5">12</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
-</edge>
-<edge source="OSD-413" target="OSD-772">
-  <data key="d4">0.389</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-413" target="OSD-773">
-  <data key="d4">0.35</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-414" target="OSD-772">
-  <data key="d4">0.389</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-414" target="OSD-773">
-  <data key="d4">0.35</data>
-  <data key="d5">7</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-<edge source="OSD-772" target="OSD-773">
-  <data key="d4">0.4</data>
-  <data key="d5">8</data>
-  <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
-</edge>
-</graph></graphml>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d6" for="edge" attr.name="shared_attrs" attr.type="string" />
+  <key id="d5" for="edge" attr.name="shared" attr.type="long" />
+  <key id="d4" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d3" for="node" attr.name="organism" attr.type="string" />
+  <key id="d2" for="node" attr.name="hardware" attr.type="string" />
+  <key id="d1" for="node" attr.name="n_samples" attr.type="long" />
+  <key id="d0" for="node" attr.name="ntype" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="OSD-766">
+      <data key="d0">Study</data>
+      <data key="d1">144</data>
+      <data key="d2">Veggie</data>
+      <data key="d3">Solanum lycopersicum</data>
+    </node>
+    <node id="OSD-412">
+      <data key="d0">Study</data>
+      <data key="d1">47</data>
+      <data key="d2">Veggie</data>
+      <data key="d3">mixed community</data>
+    </node>
+    <node id="OSD-413">
+      <data key="d0">Study</data>
+      <data key="d1">48</data>
+      <data key="d2">Veggie</data>
+      <data key="d3">mixed community</data>
+    </node>
+    <node id="OSD-414">
+      <data key="d0">Study</data>
+      <data key="d1">48</data>
+      <data key="d2">Veggie</data>
+      <data key="d3">mixed community</data>
+    </node>
+    <node id="OSD-772">
+      <data key="d0">Study</data>
+      <data key="d1">96</data>
+      <data key="d2">Advanced Plant Habitat</data>
+      <data key="d3">Capsicum annuum</data>
+    </node>
+    <node id="OSD-773">
+      <data key="d0">Study</data>
+      <data key="d1">78</data>
+      <data key="d2">Veggie/XROOTS</data>
+      <data key="d3">mixed community</data>
+    </node>
+    <edge source="OSD-766" target="OSD-412">
+      <data key="d4">0.444</data>
+      <data key="d5">8</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-766" target="OSD-413">
+      <data key="d4">0.444</data>
+      <data key="d5">8</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-766" target="OSD-414">
+      <data key="d4">0.444</data>
+      <data key="d5">8</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; hw:Veggie; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-766" target="OSD-772">
+      <data key="d4">0.421</data>
+      <data key="d5">8</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-766" target="OSD-773">
+      <data key="d4">0.45</data>
+      <data key="d5">9</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:water</data>
+    </edge>
+    <edge source="OSD-412" target="OSD-413">
+      <data key="d4">1.0</data>
+      <data key="d5">12</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-412" target="OSD-414">
+      <data key="d4">1.0</data>
+      <data key="d5">12</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-412" target="OSD-772">
+      <data key="d4">0.389</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-412" target="OSD-773">
+      <data key="d4">0.35</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-413" target="OSD-414">
+      <data key="d4">1.0</data>
+      <data key="d5">12</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Plant position; factor:Sample type; factor:Spaceflight; hw:Veggie; org:mixed community; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab; tissue:wick</data>
+    </edge>
+    <edge source="OSD-413" target="OSD-772">
+      <data key="d4">0.389</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-413" target="OSD-773">
+      <data key="d4">0.35</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-414" target="OSD-772">
+      <data key="d4">0.389</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; region:V4; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-414" target="OSD-773">
+      <data key="d4">0.35</data>
+      <data key="d5">7</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; org:mixed community; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+    <edge source="OSD-772" target="OSD-773">
+      <data key="d4">0.4</data>
+      <data key="d5">8</data>
+      <data key="d6">assay:16S rRNA amplicon; factor:Spaceflight; factor:Tissue type; tissue:fruit; tissue:leaf; tissue:root; tissue:substrate; tissue:swab</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,6 +1,6 @@
 # Figure snapshot — 2026-07-02
 
-**Corpus state at this snapshot:** 6 OSDR plant-microbiome studies, 443 samples.
+**Corpus state at this snapshot:** 6 OSDR plant-microbiome studies, 461 samples.
 
 > ⏳ **This is a transient result — by design.** The set of plant-associated
 > microbiome studies in the NASA OSDR changes over time: a snapshot taken one

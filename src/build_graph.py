@@ -127,8 +127,12 @@ def build_similarity_graph(attrs) -> nx.Graph:
 def export_formats(kg: nx.Graph, sim: nx.Graph):
     nx.write_graphml(kg, config.GRAPH_DIR / "knowledge_graph.graphml")
     nx.write_graphml(sim, config.GRAPH_DIR / "study_similarity.graphml")
+    try:
+        node_link = nx.node_link_data(kg, edges="links")
+    except TypeError:
+        node_link = nx.node_link_data(kg, link="links")  # networkx <3.4
     (config.GRAPH_DIR / "knowledge_graph.json").write_text(
-        json.dumps(nx.node_link_data(kg, edges="links"), indent=2), encoding="utf-8")
+        json.dumps(node_link, indent=2), encoding="utf-8")
     # tidy CSVs
     pd.DataFrame([{"id": n, **d} for n, d in kg.nodes(data=True)]).to_csv(
         config.GRAPH_DIR / "nodes.csv", index=False)

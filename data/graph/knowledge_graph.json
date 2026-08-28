@@ -33,28 +33,8 @@
     },
     {
       "ntype": "Tissue",
-      "label": "leaf",
-      "id": "Tissue:leaf"
-    },
-    {
-      "ntype": "Tissue",
       "label": "wick",
       "id": "Tissue:wick"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "swab",
-      "id": "Tissue:swab"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "fruit",
-      "id": "Tissue:fruit"
-    },
-    {
-      "ntype": "Tissue",
-      "label": "root",
-      "id": "Tissue:root"
     },
     {
       "ntype": "Tissue",
@@ -63,8 +43,33 @@
     },
     {
       "ntype": "Tissue",
+      "label": "leaf",
+      "id": "Tissue:leaf"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "root",
+      "id": "Tissue:root"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "swab",
+      "id": "Tissue:swab"
+    },
+    {
+      "ntype": "Tissue",
       "label": "substrate",
       "id": "Tissue:substrate"
+    },
+    {
+      "ntype": "Tissue",
+      "label": "fruit",
+      "id": "Tissue:fruit"
+    },
+    {
+      "ntype": "Factor",
+      "label": "Tissue type",
+      "id": "Factor:Tissue type"
     },
     {
       "ntype": "Factor",
@@ -75,11 +80,6 @@
       "ntype": "Factor",
       "label": "Spaceflight",
       "id": "Factor:Spaceflight"
-    },
-    {
-      "ntype": "Factor",
-      "label": "Tissue type",
-      "id": "Factor:Tissue type"
     },
     {
       "ntype": "Study",
@@ -145,19 +145,19 @@
     },
     {
       "ntype": "Factor",
-      "label": "Science carrier quadrant",
-      "id": "Factor:Science carrier quadrant"
-    },
-    {
-      "ntype": "Factor",
       "label": "Hardware component",
       "id": "Factor:Hardware component"
     },
     {
+      "ntype": "Factor",
+      "label": "Science carrier quadrant",
+      "id": "Factor:Science carrier quadrant"
+    },
+    {
       "ntype": "Study",
       "label": "OSD-773",
-      "n_samples": 60,
-      "title": "Amplicon characterization of microbial communities from multi-species plant growth on the ISS",
+      "n_samples": 78,
+      "title": "Microbial community characterization of multi-crop growouts in the XROOTS aeroponic-hydroponic system on the International Space Station.",
       "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-773",
       "id": "OSD-773"
     },
@@ -211,27 +211,7 @@
     {
       "rel": "SAMPLED_TISSUE",
       "source": "OSD-766",
-      "target": "Tissue:leaf"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
       "target": "Tissue:wick"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:swab"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:fruit"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "OSD-766",
-      "target": "Tissue:root"
     },
     {
       "rel": "SAMPLED_TISSUE",
@@ -241,7 +221,32 @@
     {
       "rel": "SAMPLED_TISSUE",
       "source": "OSD-766",
+      "target": "Tissue:leaf"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:root"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:swab"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
       "target": "Tissue:substrate"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "OSD-766",
+      "target": "Tissue:fruit"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "OSD-766",
+      "target": "Factor:Tissue type"
     },
     {
       "rel": "HAS_FACTOR",
@@ -254,11 +259,6 @@
       "target": "Factor:Spaceflight"
     },
     {
-      "rel": "HAS_FACTOR",
-      "source": "OSD-766",
-      "target": "Factor:Tissue type"
-    },
-    {
       "rel": "USES_HARDWARE",
       "source": "Hardware:Veggie",
       "target": "OSD-412"
@@ -300,31 +300,6 @@
     },
     {
       "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:leaf",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
       "source": "Tissue:wick",
       "target": "OSD-412"
     },
@@ -337,66 +312,6 @@
       "rel": "SAMPLED_TISSUE",
       "source": "Tissue:wick",
       "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:swab",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:fruit",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:fruit",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:root",
-      "target": "OSD-412"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:root",
-      "target": "OSD-413"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:root",
-      "target": "OSD-414"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:root",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "SAMPLED_TISSUE",
-      "source": "Tissue:root",
-      "target": "OSD-773"
     },
     {
       "rel": "SAMPLED_TISSUE",
@@ -405,6 +320,81 @@
     },
     {
       "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:leaf",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:root",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-412"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-413"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-414"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:swab",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
       "source": "Tissue:substrate",
       "target": "OSD-412"
     },
@@ -426,6 +416,26 @@
     {
       "rel": "SAMPLED_TISSUE",
       "source": "Tissue:substrate",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:fruit",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "SAMPLED_TISSUE",
+      "source": "Tissue:fruit",
+      "target": "OSD-773"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Tissue type",
+      "target": "OSD-772"
+    },
+    {
+      "rel": "HAS_FACTOR",
+      "source": "Factor:Tissue type",
       "target": "OSD-773"
     },
     {
@@ -451,16 +461,6 @@
     {
       "rel": "HAS_FACTOR",
       "source": "Factor:Spaceflight",
-      "target": "OSD-773"
-    },
-    {
-      "rel": "HAS_FACTOR",
-      "source": "Factor:Tissue type",
-      "target": "OSD-772"
-    },
-    {
-      "rel": "HAS_FACTOR",
-      "source": "Factor:Tissue type",
       "target": "OSD-773"
     },
     {
@@ -546,12 +546,12 @@
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-772",
-      "target": "Factor:Science carrier quadrant"
+      "target": "Factor:Hardware component"
     },
     {
       "rel": "HAS_FACTOR",
       "source": "OSD-772",
-      "target": "Factor:Hardware component"
+      "target": "Factor:Science carrier quadrant"
     },
     {
       "rel": "USES_HARDWARE",

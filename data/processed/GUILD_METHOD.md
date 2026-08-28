@@ -27,20 +27,20 @@ importance. **Two separate risk scores** are reported: `plant_pathogen_risk`
 **Feature importance (multiclass RandomForest on labelled genera):**
 | feature | importance |
 |---|---|
-| plant_assoc | 0.201 |
-| flight_lfc | 0.162 |
-| niche_breadth | 0.158 |
-| human_assoc | 0.154 |
+| plant_assoc | 0.216 |
+| human_assoc | 0.153 |
+| flight_lfc | 0.144 |
+| niche_breadth | 0.128 |
 | mean_ra | 0.090 |
-| cv_ra | 0.078 |
-| root_pref | 0.046 |
-| assoc_beneficial | 0.040 |
-| assoc_human_pathogen | 0.037 |
-| prevalence | 0.021 |
+| cv_ra | 0.085 |
+| root_pref | 0.063 |
+| assoc_beneficial | 0.044 |
+| assoc_human_pathogen | 0.038 |
+| prevalence | 0.026 |
 | assoc_plant_pathogen | 0.014 |
 
 **This-snapshot calls (illustrative scores):**
-- Likely beneficial: Bacillus, Massilia, Methylobacterium, Paenibacillus, Sphingomonas, Streptomyces, Chryseobacterium, Variovorax, Flavobacterium, Burkholderia, Rhizobium, Pantoea
+- Likely beneficial: Bacillus, Massilia, Methylobacterium, Paenibacillus, Sphingomonas, Streptomyces, Chryseobacterium, Flavobacterium, Variovorax, Burkholderia, Rhizobium, Pantoea
 - Likely PLANT pathogen (crop risk): Curtobacterium, Ralstonia
 - Likely HUMAN pathogen (food-safety risk): Acinetobacter, Cutibacterium, Staphylococcus, Stenotrophomonas, Enterobacter, Pseudomonas
 - Uncertain: none

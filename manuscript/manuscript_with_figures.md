@@ -6,7 +6,7 @@
 \* Correspondence: admin@cosecloud.com
 
 *Article type: Resource / Tool. Prepared in the format of* npj Microgravity.
-*Corpus snapshot: 2 July 2026 (6 studies, 443 samples).*
+*Corpus snapshot: 2 July 2026 (6 studies, 461 samples).*
 
 > **Figures version.** This document embeds the dated figure set
 > (`figures/2026-07-02/`). Because the OSDR plant-microbiome corpus grows over
@@ -17,7 +17,7 @@
 
 ## Abstract
 
-Plant-associated microbial communities determine the reliability, safety and nutritional value of the bioregenerative food-production systems that will sustain long-duration human spaceflight. NASA's Open Science Data Repository (OSDR) hosts a growing but heterogeneous collection of plant-microbiome studies generated aboard the International Space Station (ISS), yet these datasets remain siloed by accession, hardware and assay, impeding cross-study synthesis. Here we present **OSDR-PlantMicrobiome**, an open, FAIR (Findable–Accessible–Interoperable–Reusable) research-software tool that harvests plant-associated microbiome studies from OSDR, integrates their metadata into both a normalised **relational database** and a **knowledge graph**, computes standard microbial-ecology diversity metrics, infers microbial **ecological guilds** — separating *beneficial*, *plant-pathogenic* (a crop-yield risk) and *human-pathogenic* (a food-safety risk) taxa with a multiclass semi-supervised machine-learning engine — and renders everything into one self-contained interactive report. The 2 July 2026 snapshot integrates six confirmed OSDR accessions spanning 443 samples, seven tissue niches, three flight hardware platforms and two amplicon assays. Every record carries a provenance flag distinguishing repository-sourced facts from tool-computed and illustrative values, and the whole build is deterministic. Because the corpus is transient — smaller a year ago, larger a year hence — the tool is designed as a *living dashboard* that re-derives the current state on every run while archiving dated figures for the record. OSDR-PlantMicrobiome lowers the barrier to comparative analysis of the spaceflight plant microbiome and provides a template for FAIR meta-analysis of other OSDR data domains.
+Plant-associated microbial communities determine the reliability, safety and nutritional value of the bioregenerative food-production systems that will sustain long-duration human spaceflight. NASA's Open Science Data Repository (OSDR) hosts a growing but heterogeneous collection of plant-microbiome studies generated aboard the International Space Station (ISS), yet these datasets remain siloed by accession, hardware and assay, impeding cross-study synthesis. Here we present **OSDR-PlantMicrobiome**, an open, FAIR (Findable–Accessible–Interoperable–Reusable) research-software tool that harvests plant-associated microbiome studies from OSDR, integrates their metadata into both a normalised **relational database** and a **knowledge graph**, computes standard microbial-ecology diversity metrics, infers microbial **ecological guilds** — separating *beneficial*, *plant-pathogenic* (a crop-yield risk) and *human-pathogenic* (a food-safety risk) taxa with a multiclass semi-supervised machine-learning engine — and renders everything into one self-contained interactive report. The 2 July 2026 snapshot integrates six confirmed OSDR accessions spanning 461 samples, seven tissue niches, three flight hardware platforms and two amplicon assays. Every record carries a provenance flag distinguishing repository-sourced facts from tool-computed and illustrative values, and the whole build is deterministic. Because the corpus is transient — smaller a year ago, larger a year hence — the tool is designed as a *living dashboard* that re-derives the current state on every run while archiving dated figures for the record. OSDR-PlantMicrobiome lowers the barrier to comparative analysis of the spaceflight plant microbiome and provides a template for FAIR meta-analysis of other OSDR data domains.
 
 **Keywords:** plant microbiome; spaceflight; NASA OSDR; 16S rRNA; FAIR data; knowledge graph; machine learning; reproducible research
 
@@ -39,7 +39,7 @@ The FAIR principles¹ provide the design target. Here we apply them to the OSDR 
 
 ### An integrated, FAIR corpus of OSDR plant-microbiome studies
 
-The 2 July 2026 snapshot integrates six OSDR accessions confirmed to contain plant-associated microbiome data (Table 1): three Veggie VEG-03 multi-species leafy-green growouts (OSD-412/413/414)⁶, a tomato crop grown under contrasting lighting regimes (OSD-766), a Chile-pepper study in the Advanced Plant Habitat (OSD-772)⁷, and a multi-species survey spanning bacterial (16S rRNA) and fungal (ITS) markers (OSD-773). Together these comprise **443 samples** across **three flight-hardware platforms**, **seven tissue/niche categories** (leaf *n*=81, root *n*=80, substrate *n*=76, swab *n*=76, fruit *n*=50, wick *n*=50, water *n*=30; Fig. 1) and **two amplicon assays** (Fig. 1).
+The 2 July 2026 snapshot integrates six OSDR accessions confirmed to contain plant-associated microbiome data (Table 1): three Veggie VEG-03 multi-species leafy-green growouts (OSD-412/413/414)⁶, a tomato crop grown under contrasting lighting regimes (OSD-766), a Chile-pepper study in the Advanced Plant Habitat (OSD-772)⁷, and a multi-species survey spanning bacterial (16S rRNA) and fungal (ITS) markers (OSD-773). Together these comprise **461 samples** across **three flight-hardware platforms**, **seven tissue/niche categories** (leaf *n*=84, root *n*=83, substrate *n*=79, swab *n*=79, fruit *n*=53, wick *n*=50, water *n*=33; Fig. 1) and **two amplicon assays** (Fig. 1).
 
 ![Figure 1](../figures/2026-07-02/Fig1_sampling_design.png)
 
@@ -89,7 +89,7 @@ The six-study snapshot analysed here is a moment in a moving target. A snapshot 
 
 ## Discussion
 
-OSDR-PlantMicrobiome addresses a specific and growing gap: the plant-microbiome data accumulating in OSDR are individually FAIR but collectively hard to synthesise. By harmonising six accessions and 443 samples into a relational database *and* a knowledge graph, computing diversity, inferring microbial guilds, and presenting everything as one interactive report, the tool converts isolated depositions into a queryable, comparable and citable resource.
+OSDR-PlantMicrobiome addresses a specific and growing gap: the plant-microbiome data accumulating in OSDR are individually FAIR but collectively hard to synthesise. By harmonising six accessions and 461 samples into a relational database *and* a knowledge graph, computing diversity, inferring microbial guilds, and presenting everything as one interactive report, the tool converts isolated depositions into a queryable, comparable and citable resource.
 
 Three design choices follow from the FAIR principles. **Interoperability** is achieved by mapping heterogeneous per-study metadata onto a shared relational schema *and* a graph model, so cross-study queries — whether tabular (SQL) or relational (Cypher/GraphML) — become trivial. **Reusability** is protected by per-row provenance flags and a fully deterministic, seeded build, so any user can regenerate every artefact byte-for-byte and always distinguish repository facts from derived or illustrative values. **Findability and Accessibility** are served by packaging code, registry, database, graph, guild engine, dated figures, data dictionary and citation metadata for Zenodo under an open licence.
 
@@ -175,4 +175,4 @@ The author declares no competing interests.
 | OSD-413 | Multi-species leafy greens | Veggie VEG-03E | 16S rRNA (V4) | 48 | high |
 | OSD-414 | Multi-species leafy greens | Veggie VEG-03F | 16S rRNA (V4) | 48 | high |
 | OSD-772 | Chile pepper (*Capsicum annuum* cv. NuMex Española Improved) | Advanced Plant Habitat | 16S rRNA (V4) | 96 | high |
-| OSD-773 | Multi-species (radish, lettuce, mizuna, wheat) | Veggie / XROOTS | ITS1 + 16S rRNA | 60 | medium |
+| OSD-773 | Multi-species (radish, lettuce, mizuna, wheat, tomato, pea) | Veggie / XROOTS | ITS1 + 16S rRNA | 78 | high |
